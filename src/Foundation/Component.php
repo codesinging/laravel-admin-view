@@ -54,4 +54,16 @@ class Component extends Element
     {
         return $this->tagPrefix . $this->baseTag();
     }
+
+    /**
+     * The methods to set attributes.
+     *
+     * @param string $name
+     * @param array  $parameters
+     */
+    public function __call($name, $parameters)
+    {
+        $name = Str::kebab($name);
+        $this->set($name, $arguments[0] ?? true, $arguments[1] ?? null);
+    }
 }

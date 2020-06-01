@@ -34,6 +34,13 @@ class ComponentTest extends TestCase
         self::assertEquals('components', (new Components())->baseTag());
         self::assertEquals('component-example', (new ComponentExample())->baseTag());
     }
+
+    public function test__call()
+    {
+        $component = new Component();
+        $component->disabled();
+        self::assertEquals('<el-component :disabled="true"></el-component>', $component->build());
+    }
 }
 
 class ComponentExample extends Component
