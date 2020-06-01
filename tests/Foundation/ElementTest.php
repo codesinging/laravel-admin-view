@@ -18,6 +18,7 @@ class ElementTest extends TestCase
     {
         self::assertEquals('<div></div>', (new Element('div'))->build());
         self::assertEquals('<div>hello</div>', new Element('div', null, 'hello'));
+        self::assertEquals('<div>hello</div>', new Element('div', 'hello'));
     }
 
     public function testInit()

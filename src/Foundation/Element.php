@@ -57,13 +57,18 @@ class Element extends Buildable
      * Element constructor.
      *
      * @param string                              $tag
-     * @param array|null                          $attributes
+     * @param array|string|null                   $attributes
      * @param null|string|array|Content|Buildable $content
      * @param bool                                $closing
      * @param bool                                $linebreak
      */
-    public function __construct(string $tag = 'div', array $attributes = null, $content = null, bool $closing = true, bool $linebreak = false)
+    public function __construct(string $tag = 'div', $attributes = null, $content = null, bool $closing = true, bool $linebreak = false)
     {
+        if (is_string($attributes) && is_null($content)) {
+            $content = $attributes;
+            $attributes = null;
+        }
+
         $this->builder = new Builder($tag);
         $this->content = new Content($content);
         $this->attribute = new Attribute($this->attributes, $attributes);
