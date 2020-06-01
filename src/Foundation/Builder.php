@@ -158,10 +158,9 @@ class Builder extends Buildable
     public function build()
     {
         return sprintf(
-            '<%s%s%s>%s%s%s%s',
+            '<%s%s>%s%s%s%s',
             $this->tag,
             empty($this->attributes) ? '' : ' ' . $this->attributes,
-            $this->closing ? '' : ' /',
             $this->linebreak && !empty($this->content) ? PHP_EOL : '',
             $this->content,
             $this->linebreak && $this->closing ? PHP_EOL : '',

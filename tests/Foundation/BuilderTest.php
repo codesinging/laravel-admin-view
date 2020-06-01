@@ -36,7 +36,7 @@ class BuilderTest extends TestCase
 
     public function testClosing()
     {
-        self::assertEquals('<input />', (new Builder('input'))->closing(false)->build());
+        self::assertEquals('<input>', (new Builder('input'))->closing(false)->build());
     }
 
     public function testLinebreak()
