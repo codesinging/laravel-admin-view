@@ -80,17 +80,13 @@ class Element extends Buildable
     /**
      * Initialize the element.
      *
-     * @param string                              $tag
-     * @param array|null                          $attributes
-     * @param null|string|array|Content|Buildable $content
-     * @param bool                                $closing
-     * @param bool                                $linebreak
+     * @param array $parameters
      *
      * @return $this
      */
-    public static function init(string $tag = 'div', array $attributes = null, $content = null, bool $closing = true, bool $linebreak = false)
+    public static function init(...$parameters)
     {
-        return new static($tag, $attributes, $content, $closing, $linebreak);
+        return new static(...$parameters);
     }
 
     /**
