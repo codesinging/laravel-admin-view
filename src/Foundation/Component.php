@@ -60,10 +60,13 @@ class Component extends Element
      *
      * @param string $name
      * @param array  $parameters
+     *
+     * @return $this
      */
     public function __call($name, $parameters)
     {
         $name = Str::kebab($name);
-        $this->set($name, $arguments[0] ?? true, $arguments[1] ?? null);
+        $this->set($name, $parameters[0] ?? true, $parameters[1] ?? null);
+        return $this;
     }
 }
