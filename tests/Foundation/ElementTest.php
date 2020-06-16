@@ -86,7 +86,7 @@ class ElementTest extends TestCase
     public function testClosing()
     {
         self::assertEquals('<div></div>', Element::init());
-        self::assertEquals('<input />', Element::init('input')->closing(false));
+        self::assertEquals('<input>', Element::init('input')->closing(false));
     }
 
     public function testLinebreak()
